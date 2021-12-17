@@ -1,0 +1,30 @@
+{
+  "name": "@swiftyapp/aes-256-gcm",
+  "version": "1.0.0",
+  "description": "AES 256 GCM Encryption Algorithm",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:swiftyapp/aes-256-gcm-js.git",
+  "scripts": {
+    "test": "eslint . && tape test.js"
+  },
+  "keywords": [
+    "encrypt",
+    "decrypt",
+    "encryption",
+    "decryption",
+    "crypto",
+    "cipher",
+    "aes-256",
+    "aes256",
+    "aes-256-gcm",
+    "cryptr",
+    "crypter"
+  ],
+  "author": "Alex Chaplinsky <alchaplinsky@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "tape": "^5.3.2"
+  }
+}
