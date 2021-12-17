@@ -28,6 +28,13 @@ test('Encrypted data is a hex string', t => {
   t.match(encrypt(data, secret), /^[0-9a-f]+$/)
 })
 
+test('Decrypts data encrypted with Dart', t => {
+  t.plan(1)
+
+  const encrypted = '0c8f8023a48d7684dc6f662a4e33d85fbcc9b5ab168e2d9c3bd4ce4e72a6eb8ea75d833e1ce7f0a0f5f24c234f6aaec9359c48577fcc8e82'
+  t.equal(decrypt(encrypted, 'password'), 'Hello World!')
+})
+
 test('Throws an error if no secret given', t => {
   t.plan(4)
 
