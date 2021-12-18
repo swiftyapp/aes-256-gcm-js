@@ -1,4 +1,4 @@
-import crypto from 'crypto'
+const crypto = require('crypto')
 
 const ALGORITHM = 'aes-256-gcm'
 const KEY_ALGORITHM = 'sha512'
@@ -8,7 +8,7 @@ const TAG_LENGTH = 16
 const KEY_LENGTH = 32
 const KEY_ITERATIONS_COUNT = 10000
 
-export const encrypt = (cleartext, password, encoding = 'hex') => {
+const encrypt = (cleartext, password, encoding = 'hex') => {
   if (typeof cleartext !== 'string')
     throw new TypeError('Encryption error: data must be a string')
 
@@ -28,7 +28,7 @@ export const encrypt = (cleartext, password, encoding = 'hex') => {
   return Buffer.concat([salt, iv, encrypted, tag]).toString(encoding)
 }
 
-export const decrypt = (ciphertext, password, encoding = 'hex') => {
+const decrypt = (ciphertext, password, encoding = 'hex') => {
   if (typeof ciphertext !== 'string')
     throw new TypeError('Encryption error: cipher text must be a string')
 
@@ -53,3 +53,5 @@ export const decrypt = (ciphertext, password, encoding = 'hex') => {
 const pbkdf2 = (password, salt) => {
   return crypto.pbkdf2Sync(password, salt, KEY_ITERATIONS_COUNT, KEY_LENGTH, KEY_ALGORITHM)
 }
+
+module.exports = { encrypt, decrypt }

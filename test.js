@@ -1,5 +1,5 @@
-import test from 'tape'
-import { encrypt, decrypt } from './index.js'
+const test = require('tape')
+const { encrypt, decrypt } = require('./index.js')
 
 const secret = 'mysecretpassword'
 const data = 'sensitive data to encrypt'
@@ -35,26 +35,34 @@ test('Decrypts data encrypted with Dart', t => {
   t.equal(decrypt(encrypted, 'password'), 'Hello World!')
 })
 
-test('Throws an error if no secret given', t => {
+test('Throws an error if secret is not a string', t => {
   t.plan(4)
 
   t.throws(
     () => encrypt(data),
-    /The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received undefined/
+    {
+      code: 'ERR_INVALID_ARG_TYPE',
+    }
   )
 
   t.throws(
     () => encrypt(data, null),
-    /The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received null/
+    {
+      code: 'ERR_INVALID_ARG_TYPE',
+    }
   )
   t.throws(
     () => encrypt(data, 0),
-    /The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received type number \(0\)/
+    {
+      code: 'ERR_INVALID_ARG_TYPE',
+    }
   )
 
   t.throws(
     () => encrypt(data, {}),
-    /The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received an instance of Object/
+    {
+      code: 'ERR_INVALID_ARG_TYPE',
+    }
   )
 })
 

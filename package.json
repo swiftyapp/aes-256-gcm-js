@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "AES 256 GCM Encryption Algorithm",
   "main": "index.js",
-  "type": "module",
   "repository": "git@github.com:swiftyapp/aes-256-gcm-js.git",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.mjs"
+  },
   "scripts": {
     "test": "eslint . && tape test.js"
   },
@@ -24,6 +27,9 @@
   "author": "Alex Chaplinsky <alchaplinsky@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/register": "^7.16.5",
     "eslint": "^8.4.1",
     "tape": "^5.3.2"
   }
