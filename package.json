@@ -1,6 +1,6 @@
 {
   "name": "@swiftyapp/aes-256-gcm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AES 256 GCM Encryption Algorithm",
   "main": "index.js",
   "repository": "git@github.com:swiftyapp/aes-256-gcm-js.git",
